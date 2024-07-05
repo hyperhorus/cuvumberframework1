@@ -12,3 +12,15 @@ Feature: Select products and add them to kart
     Examples: 
       | name | qty |
       | Tom  |   3 |
+
+      
+  @A3
+  Scenario: Select products on landing page and add them to cart
+    Given User is on GreenKart Landing Page
+    When User add to cart brocolli, carrot, potato
+    Then Navigate to place order page
+    #And 
+    #And Verify the <name> is displayed
+    #And Verify that "Apply" and "Place Order" buttons
+
+    

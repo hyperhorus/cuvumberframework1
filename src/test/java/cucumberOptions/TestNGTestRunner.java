@@ -13,7 +13,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		monochrome = true,
 		plugin = {"pretty", "html:target/cucumber.html", "rerun:target/failed_scenarios.txt"},
 		dryRun = false,
-		tags = "@A2" 
+		tags = "@A3" 
 		)
 public class TestNGTestRunner {
 

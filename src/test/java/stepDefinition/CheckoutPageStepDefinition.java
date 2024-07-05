@@ -28,9 +28,12 @@ public class CheckoutPageStepDefinition {
 	GenericUtils genericUtils;
 	CheckoutPage checkoutPage;
 	
+	
 	public CheckoutPageStepDefinition (TestContextSetup testContentSetup) throws Exception {
 		this.testContextSetup = testContentSetup;
 		checkoutPage = new CheckoutPage(testContextSetup.testBase.WebDriverManager());
+		genericUtils = new GenericUtils(testContextSetup.testBase.WebDriverManager());
+		
 	}
 	@Then("^Verify the (.+) is displayed$")
 	public void verify_the_tom_is_displayed(String name) throws Exception {
@@ -45,5 +48,14 @@ public class CheckoutPageStepDefinition {
 		Assert.assertEquals(checkoutPage.applyButton(), str1);
 
 	}
+	
+	@When("User add to cart brocolli, carrot, potato")
+	public void user_add_to_cart_brocolli_carrot_potato() throws Exception {
+	    checkoutPage.brocolliSelect();
+	    checkoutPage.carrotSelect();
+	    checkoutPage.potatoeSelect();
+	    genericUtils.sleepTime(1000);
+	}
+
 		
 }

@@ -27,10 +27,11 @@ public class LandingPageStepDefinition {
 		//testContextSetup.driver = new ChromeDriver();
 		//testContextSetup.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		genericUtils = new GenericUtils(testContextSetup.testBase.WebDriverManager());
+		landingPage = testContextSetup.pageObjectManager.getLandingPage(); //new LandingPage(testContentSetup.driver);
 	}
 	@When("^User searched  with shortname (.+) and extracted actual name for product$")
 	public void user_searched_with_shortname_and_extracted_actual_name_for_product(String shortName) throws Exception  {
-		landingPage = testContextSetup.pageObjectManager.getLandingPage(); //new LandingPage(testContentSetup.driver);
+		//landingPage = testContextSetup.pageObjectManager.getLandingPage(); //new LandingPage(testContentSetup.driver);
 		landingPage.searchItem(shortName);		
 	    genericUtils.sleepTime(1000);
 	    testContextSetup.productLandingPage = landingPage.getProductName().split("-")[0].trim();
@@ -48,6 +49,7 @@ public class LandingPageStepDefinition {
 	}
 	@Then("Navigate to place order page")
 	public void navigate_to_place_order_page() throws Exception {
+		//landingPage = testContextSetup.pageObjectManager.getLandingPage(); //new LandingPage(testContentSetup.driver);
 		landingPage.selectCartImg();
 		genericUtils.sleepTime(500);
 		landingPage.proceedCheckOut();
